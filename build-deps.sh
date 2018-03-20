@@ -1,18 +1,17 @@
 #!/bin/bash
 
-cd $WORKDIR
-echo $WORKDIR
- 
 # Compile MXE
-cd $WORKDIR
+cd $WORKDIR || echo "cd failed"; exit
 git clone https://github.com/mxe/mxe.git
+echo $WORKDIR
+
 cd $WORKDIR/mxe
 make MXE_TARGETS="i686-w64-mingw32.static" boost
 make MXE_TARGETS="i686-w64-mingw32.static" qttools
 
 # compile Barkeley DB 4.8
 
-cd $TRAVIS_BUILD_DIR
+cd $WORKDIR
 wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
 tar -xzvf db-4.8.30.NC.tar.gz
 cd $WORKDIR/db-4.8.30.NC
@@ -37,7 +36,7 @@ make install
 
 # compile miniupnp
 
-cd $TRAVIS_BUILD_DIR
+cd $WORKDIR
 wget http://miniupnp.free.fr/files/miniupnpc-1.6.20120509.tar.gz
 tar zxvf miniupnpc-1.6.20120509.tar.gz
 cd $WORKDIR/miniupnpc-1.6.20120509
