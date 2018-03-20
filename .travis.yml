@@ -1,5 +1,5 @@
 dist: trusty
-sudo: false
+sudo: required
 language: c
 
 # Always test GCC - Clang has problems with coverage report generation
@@ -11,12 +11,13 @@ env:
   - WORKDIR=$TRAVIS_BUILD_DIR
   - COIN_SRC="https://github.com/bulwark-crypto/Bulwark.git"
   - COIN_NAME=$(basename "${COIN_SRC%.*}")
-  - echo "$COIN_NAME"
-  - echo "$WORKDIR"
-  - cd "$WORKDIR"
+
   
 # Install dependencies
 before_install:
+  - echo "$COIN_NAME"
+  - echo "$WORKDIR"
+  - cd "$WORKDIR"
   - chmod +x ./build-wallet.sh
   
 install: true
