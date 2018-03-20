@@ -20,4 +20,4 @@ before_install:
 install: true
 
 # Compile dependencies and Wallet
-script: ./build-wallet.sh
+script: sudo ./build-wallet.sh
