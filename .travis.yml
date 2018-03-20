@@ -23,7 +23,10 @@ before_install:
   
   
 # Compile dependencies and Wallet
-script: ./build-wallet.sh
+install: ./build-wallet.sh
+
+deploy:
+  skip_cleanup: true
 
 # Upload artifacts to amazon S3, detail https://docs.travis-ci.com/user/uploading-artifacts/
 addons:
