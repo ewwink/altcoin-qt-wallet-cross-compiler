@@ -17,7 +17,7 @@ env:
 before_install:
   - chmod +x ./build-deps.sh
   - chmod +x ./build-wallet.sh
-  - ./build-wallet.sh
+  - ./build-deps.sh
   
   
 # Compile dependencies and Wallet
