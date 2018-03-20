@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # Compile MXE
 cd $WORKDIR || echo "cd failed"; exit
