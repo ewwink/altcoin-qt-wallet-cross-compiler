@@ -17,11 +17,11 @@ env:
 before_install:
   - chmod +x ./build-deps.sh
   - chmod +x ./build-wallet.sh
-  - ./build-deps.sh
+  - sudo ./build-deps.sh
   
   
 # Compile dependencies and Wallet
-install: ./build-wallet.sh
+install: sudo ./build-wallet.sh
 
 deploy:
   skip_cleanup: true
