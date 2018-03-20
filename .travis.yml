@@ -1,0 +1,45 @@
+dist: trusty
+sudo: required
+language: c
+
+# Always test GCC - Clang has problems with coverage report generation
+compiler:
+  - gcc
+
+# edit here, Set Environment Variables
+env:
+  - WORKDIR=$TRAVIS_BUILD_DIR
+  - COIN_SRC="https://github.com/bulwark-crypto/Bulwark.git"
+  - COIN_NAME=$(basename ${COIN_SRC%.*})
+  
+# Install dependencies
+before_install:
+  - mkdir -p $WORKDIR/db-5.3.28
+  - mkdir -p $WORKDIR/miniupnpc-1.6.20120509
+  - cp berkeley-db.sh $WORKDIR/db-4.8.30.NC/berkeley-db.sh
+  - cp miniunp.sh $WORKDIR/miniupnpc-1.6.20120509/miniunp.sh
+  - chmod ugo+x wallet.sh
+  - chmod ugo+x $WORKDIR/db-4.8.30.NC/compile-db.sh
+  - chmod ugo+x $WORKDIR/miniupnpc-1.6.20120509/miniunp.sh
+  
+  - sudo apt-get update -qq -y
+  - sudo apt-get install p7zip-full autoconf automake autopoint bash bison bzip2 cmake flex gettext git g++ gperf intltool libffi-dev libtool libltdl-dev libssl-dev libxml-parser-perl make openssl patch perl pkg-config python ruby scons sed unzip wget xz-utils
+  - sudo apt-get install g++-multilib libc6-dev-i386
+  - cd $WORKDIR
+  - git clone https://github.com/mxe/mxe.git
+  - cd $WORKDIR/mxe
+  - make MXE_TARGETS="i686-w64-mingw32.static" boost
+  - make MXE_TARGETS="i686-w64-mingw32.static" qttools
+  
+  
+# Compile Wallet
+script:
+  - $WORKDIR/db-4.8.30.NC/berkeley-db.sh
+  - $WORKDIR/miniupnpc-1.6.20120509/miniunp.sh
+  - wallet.sh
+
+# Upload artifacts to amazon S3, detail https://docs.travis-ci.com/user/uploading-artifacts/
+addons:
+  artifacts:
+    s3_region: "ap-southeast-1"
+    working_dir: $WORKDIR/$COIN_NAME/release
