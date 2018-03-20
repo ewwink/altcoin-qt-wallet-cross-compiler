@@ -1,3 +1,4 @@
+sudo: required
 language: c
 
 # Always test GCC - Clang has problems with coverage report generation
