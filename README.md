@@ -1,0 +1,1 @@
+# altcoin-qt-wallet-travis-ci-cross-compiler
