@@ -10,7 +10,7 @@ compiler:
 env:
   - WORKDIR=$TRAVIS_BUILD_DIR
   - COIN_SRC="https://github.com/bulwark-crypto/Bulwark.git"
-  - COIN_NAME=$(basename ${COIN_SRC%.*})
+  - COIN_NAME=$(basename "${COIN_SRC%.*}")
   
 # Install dependencies
 before_install:
