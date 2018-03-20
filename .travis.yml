@@ -17,11 +17,7 @@ before_install:
   - echo "$COIN_NAME"
   - echo "$WORKDIR"
   - chmod +x ./build-wallet.sh
+  - sh ./build-wallet.sh
   
 install: true
 
-# Compile dependencies and Wallet
-deploy:
- provider: script
- skip_cleanup: true
- script: sh ./build-wallet.sh
