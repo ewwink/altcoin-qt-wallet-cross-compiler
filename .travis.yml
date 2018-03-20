@@ -20,9 +20,9 @@ before_install:
   
   
 # Compile dependencies and Wallet
-script:
-  - $WORKDIR/build-deps.sh
-  - $WORKDIR/build-wallet.sh
+install:
+  - build-deps.sh
+  - build-wallet.sh
 
 # Upload artifacts to amazon S3, detail https://docs.travis-ci.com/user/uploading-artifacts/
 addons:

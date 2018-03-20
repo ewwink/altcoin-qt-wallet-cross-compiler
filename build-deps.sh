@@ -2,10 +2,6 @@
 
 cd $WORKDIR
 echo $WORKDIR
-mkdir -p $WORKDIR/db-5.3.28
-mkdir -p $WORKDIR/miniupnpc-1.6.20120509
-cp $WORKDIR/berkeley-db.sh $WORKDIR/db-4.8.30.NC/berkeley-db.sh
-cp $WORKDIR/miniunp.sh $WORKDIR/miniupnpc-1.6.20120509/miniunp.sh
  
 # Compile MXE
 cd $WORKDIR
