@@ -1,8 +1,9 @@
 #!/bin/bash
 
-#Compile QT Wallet
 
-cd $WORKDIR
+#Compile Alcoin QT Wallet
+cd $WORKDIR || echo "cd failed"; exit
+
 git clone "$COIN_SRC"
 
 cd "$WORKDIR"/"$COIN_NAME"

@@ -15,16 +15,12 @@ env:
   
 # Install dependencies
 before_install:
-  #- sudo apt-get update -qq -y
-  - sudo apt-get install p7zip-full autoconf automake autopoint bash bison bzip2 cmake flex gettext git g++ gperf intltool libffi-dev libtool libltdl-dev libssl-dev libxml-parser-perl make openssl patch perl pkg-config python ruby scons sed unzip wget xz-utils
-  - sudo apt-get install g++-multilib libc6-dev-i386
   - chmod +x ./build-deps.sh
   - chmod +x ./build-wallet.sh
-  
+  - ./build-wallet.sh
   
 # Compile dependencies and Wallet
 install:
-  - ./build-deps.sh
   - ./build-wallet.sh
 
 # Upload artifacts to amazon S3, detail https://docs.travis-ci.com/user/uploading-artifacts/
