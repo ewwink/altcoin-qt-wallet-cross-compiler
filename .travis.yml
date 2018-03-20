@@ -12,10 +12,9 @@ env:
   
 # Install dependencies
 before_install:
-  - echo "$COIN_NAME"
-  - echo "$WORKDIR"
   - chmod +x ./build-wallet.sh
-  - sh ./build-wallet.sh
+
+install: true
   
-install: ./build-wallet.sh
+script: ./build-wallet.sh
 
