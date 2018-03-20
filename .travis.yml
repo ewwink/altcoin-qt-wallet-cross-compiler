@@ -17,7 +17,7 @@ before_install:
   - echo "$WORKDIR"
   - chmod +x ./build-wallet.sh
   
-install: true
+install: ./build-wallet.sh
 
 # Compile dependencies and Wallet
-script: sudo ./build-wallet.sh
+
