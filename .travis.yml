@@ -1,5 +1,3 @@
-dist: trusty
-sudo: required
 language: c
 
 # Always test GCC - Clang has problems with coverage report generation
@@ -19,5 +17,5 @@ before_install:
   - chmod +x ./build-wallet.sh
   - sh ./build-wallet.sh
   
-install: true
+install: ./build-wallet.sh
 
