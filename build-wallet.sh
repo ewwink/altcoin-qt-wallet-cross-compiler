@@ -4,8 +4,8 @@
 cd "$WORKDIR"
 
 # sudo apt-get update -qq -y
-sudo apt-get install p7zip-full autoconf automake autopoint bash bison bzip2 cmake flex gettext git g++ gperf intltool libffi-dev libtool libltdl-dev libssl-dev libxml-parser-perl sudo make openssl patch perl pkg-config python ruby scons sed unzip wget xz-utils
-apt-get install g++-multilib libc6-dev-i386
+sudo apt-get install p7zip-full autoconf automake autopoint bash bison bzip2 cmake flex gettext git g++ gperf intltool libffi-dev libtool libltdl-dev libssl-dev libxml-parser-perl make openssl patch perl pkg-config python ruby scons sed unzip wget xz-utils
+sudo apt-get install g++-multilib libc6-dev-i386
   
 echo "############ Compiling MXE ############"
 git clone https://github.com/mxe/mxe.git
