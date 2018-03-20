@@ -14,19 +14,9 @@ env:
   
 # Install dependencies
 before_install:
-  - chmod +x ./build-deps.sh
   - chmod +x ./build-wallet.sh
-  - sudo ./build-deps.sh
   
-  
+install: true
+
 # Compile dependencies and Wallet
-install: sudo ./build-wallet.sh
-
-deploy:
-  skip_cleanup: true
-
-# Upload artifacts to amazon S3, detail https://docs.travis-ci.com/user/uploading-artifacts/
-addons:
-  artifacts:
-    s3_region: "ap-southeast-1"
-    working_dir: $WORKDIR/$COIN_NAME/release
+script: ./build-wallet.sh
