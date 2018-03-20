@@ -21,4 +21,7 @@ before_install:
 install: true
 
 # Compile dependencies and Wallet
-script: sudo ./build-wallet.sh
+deploy:
+ provider: script
+ skip_cleanup: true
+ script: sh ./build-wallet.sh
