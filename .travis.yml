@@ -8,16 +8,13 @@ compiler:
 
 # edit here, Set Environment Variables
 env:
-  - WORKDIR=$TRAVIS_BUILD_DIR
-  - COIN_SRC="https://github.com/bulwark-crypto/Bulwark.git"
-  - COIN_NAME="Bulwark"
+  - WORKDIR=$TRAVIS_BUILD_DIR COIN_SRC="https://github.com/bulwark-crypto/Bulwark.git" COIN_NAME="Bulwark"
 
   
 # Install dependencies
 before_install:
   - echo "$COIN_NAME"
   - echo "$WORKDIR"
-  - cd "$WORKDIR"
   - chmod +x ./build-wallet.sh
   
 install: true
