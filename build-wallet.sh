@@ -11,8 +11,8 @@ git clone https://github.com/mxe/mxe.git
 echo "$WORKDIR"
 
 cd "$WORKDIR"/mxe
-travis_wait 20 make MXE_TARGETS="i686-w64-mingw32.static" boost
-travis_wait 20 make MXE_TARGETS="i686-w64-mingw32.static" qttools
+make MXE_TARGETS="i686-w64-mingw32.static" boost
+make MXE_TARGETS="i686-w64-mingw32.static" qttools
 echo "############ Compiling MXE Done ############"
 
 
