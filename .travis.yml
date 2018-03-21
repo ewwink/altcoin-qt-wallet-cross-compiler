@@ -15,7 +15,5 @@ env:
 before_install:
   - chmod +x ./build-wallet.sh
 
-install: true
-  
-script: travis_wait 20 ./build-wallet.sh
+install: travis_wait 20 ./build-wallet.sh
 
